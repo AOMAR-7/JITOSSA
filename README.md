@@ -38,7 +38,13 @@
 ``` 
 1. Heroku Account
 2. A WhatsApp Number
-3. Orises Code (session) 
+3. Orises Code (jitossaSession)
+4. upload cards json to JitossaSession
+5. creat new app heroku
+6. and sign with github
+7. chose JITOSSA repo and deploy
+8. done your bot is conncet
+9. testing and gived star 🙋🏻‍♂️
 ```
 
 ◉ Obtain Orises (session) for Your Number
