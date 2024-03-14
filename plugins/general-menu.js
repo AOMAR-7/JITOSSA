@@ -4,30 +4,29 @@ import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 //import { plugins } from '../lib/plugins.js'
 let tags = {
-  'morocco':'  ‎أوامر للمغاربة',
-  'applications':'‎ أوامر التطبيقات‎',
-  'drawing':'‎ توليد الصور‎ أوامر' ,
-  'ai':'‎ الذكاء الاصطناعي‎ أوامر',
+  'morocco':'  ‎قسم للمغاربة',
+  'applications':'‎ قسم التطبيقات‎',
+  'drawing':'‎ توليد الصور‎ قسم' ,
+  'ai':'‎ الذكاء الاصطناعي‎ قسم',
   'infobot':'‎ معلومات البوت‎',
-  'downloader':'‎ أوامر التحميلات',
-  'anime':'‎ أوامر عن  الأنيم',
+  'downloader':'‎ قسم التحميلات',
+  'anime':'‎ قسم عن  الأنيم',
   'islam':'‎ الدين هو الاسلام‎',
-  'owner':'‎ اوامر صاحب البوت',
-  'search':'‎ أوامر البحث',
+  'owner':'‎ قسم صاحب البوت',
+  'search':'‎ قسم البحث',
   'audio-changer':'‎ تعديل الصوتيات‎',
-  'sticker':'‎ أوامر الملصقات',
-  'image-edit':'‎ تعديل الصور',
-  'pdf':'‎ pdf ومشتقاته‎',
-  'uploader':'‎‎ رفع الملفات‎',
+  'sticker':'‎ قسم الملصقات',
+  'image-edit':'‎ قسم الصور',
+  'pdf':'‎ pdf قسم',
+  'uploader':'‎‎ قسم الملفات‎',
 }
 const defaultMenu = {
   before: `
-*_J I T O S S A_*
+*J I T O S S A*
 
-]_*
-*_あ Uptime : [ %muptime ]_*
-*_あ Date : [ %date ]_*
-*_あ Database : [ %totalreg ]_*
+*SLAM 3LIKA 🧚🏼‍♀️ [%name]*
+*あ التوقيت : [ %muptime ]*
+*あ التاريخ : [ %date ]_*
 
 %readmore
 `.trimStart(),
@@ -137,10 +136,10 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 text: text,
 contextInfo: {
 externalAdReply: {
-title: 'BOBIZA BOT ♥',
-body: "أول بوت واتساب في العالم العربي 💖",
-thumbnailUrl: 'https://telegra.ph/file/2829c7653514416d207e2.jpg',
-sourceUrl: 'https://instagram.com/noureddine_ouafy',
+title: 'JITOSSA BOT',
+body: "جيطوسة ترحب بك فى أي وقت",
+thumbnailUrl: 'https://telegra.ph/file/415de578bf253c0e851e2.jpg',
+sourceUrl: 'https://instagram.com/ovmar_1',
 mediaType: 1,
 renderLargerThumbnail: true
 }}}, { quoted: m})
