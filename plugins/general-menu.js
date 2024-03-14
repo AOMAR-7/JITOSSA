@@ -31,7 +31,7 @@ const defaultMenu = {
 %readmore
 `.trimStart(),
   header: '╭┉┉┉≻ *“%category”* ≺┉┉┉',
-  body: `┆ \t ➦ _%cmd%islimit%isPremium_ `,
+  body: `┆ \t ➦ _%cmd `,
   footer: '┆',
   after: `╰┉┉┉≻\t _© ${conn.user.name}_ \t`,
 }
