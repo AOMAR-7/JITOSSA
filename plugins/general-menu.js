@@ -24,9 +24,9 @@ const defaultMenu = {
   before: `
 *J I T O S S A*
 
-*SLAM 3LIKA 🧚🏼‍♀️ [%name]*
+*السلام عليكم يا 🧚🏼‍♀️ [%name]*
 *あ التوقيت : [ %muptime ]*
-*あ التاريخ : [ %date ]_*
+*あ التاريخ : [ %date ]*
 
 %readmore
 `.trimStart(),
