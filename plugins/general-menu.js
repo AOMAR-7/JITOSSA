@@ -137,7 +137,7 @@ text: text,
 contextInfo: {
 externalAdReply: {
 title: 'JITOSSA BOT',
-body: "جيطوسة ترحب بك فى أي وقت",
+body: "جيطوسة ترحب بك فى أي وقت ❤️‍🩹",
 thumbnailUrl: 'https://telegra.ph/file/415de578bf253c0e851e2.jpg',
 sourceUrl: 'https://instagram.com/ovmar_1',
 mediaType: 1,
