@@ -1,31 +1,49 @@
-import express from 'express'
-import axios from 'axios'
-import http from "http"
-import { fileURLToPath } from 'url'
-import { join, dirname } from 'path'
+import express from 'express';
+import {createServer} from 'http';
+import path from 'path';
+import {Socket} from 'socket.io';
+import {toBuffer} from 'qrcode';
+import fetch from 'node-fetch';
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
+function connect(conn, PORT) {
+  const app = global.app = express();
+  console.log(app);
+  const server = global.server = createServer(app);
+  let _qr = 'El código QR es invalido, posiblemente ya se escaneo el código QR.';
 
-function connect(PORT) {
-  let app = global.app = express()
+  conn.ev.on('connection.update', function appQR({qr}) {
+    if (qr) _qr = qr;
+  });
 
-	app.get('/', (req, res) => {
- res.sendFile(__dirname + '/index.html');
-});
-  
-  app.listen(process.env.port || process.env.PORT || ~~(Math.random() * 1e4), () => {
-   console.log('App listened on port', process.env.port || process.env.PORT || ~~(Math.random() * 1e4))
-   keepAlive()
-   })
+  app.use(async (req, res) => {
+    res.setHeader('content-type', 'image/png');
+    res.end(await toBuffer(_qr));
+  });
+
+  server.listen(PORT, () => {
+    console.log('[ ℹ️ ] La aplicación está escuchando el puerto', PORT, '(ignorar si ya escaneo el código QR)');
+    if (opts['keepalive']) keepAlive();
+  });
+}
+
+function pipeEmit(event, event2, prefix = '') {
+  const old = event.emit;
+  event.emit = function(event, ...args) {
+    old.emit(event, ...args);
+    event2.emit(prefix + event, ...args);
+  };
+  return {
+    unpipeEmit() {
+      event.emit = old;
+    }};
 }
 
 function keepAlive() {
-    const url = `https://${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co`
-    if (/(\/\/|\.)undefined\./.test(url)) return
-    setInterval(() => {
-        axios(url).catch(console.error)
-    }, 5 * 1000)
+  const url = `https://${process.env.REPL_SLUG}.${process.env.REPL_OWNER}.repl.co`;
+  if (/(\/\/|\.)undefined\./.test(url)) return;
+  setInterval(() => {
+    fetch(url).catch(console.error);
+  }, 5 * 1000 * 60);
 }
 
-
-export default connect
+export default connect;
