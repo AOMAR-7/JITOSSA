@@ -109,52 +109,35 @@ const defaultMenu = {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-const vi = ['https://telegra.ph/file/067b2cb3312837533239c.mp4',
-'https://telegra.ph/file/e38881701692c74484a17.mp4',
-'https://telegra.ph/file/de776d34ef058b7d2ec12.mp4', 'https://telegra.ph/file/bc82653506c301b40679c.mp4',     'https://telegra.ph/file/7f10b3624991bbcee9ded.mp4', 'https://telegra.ph/file/51aa9701839dcc29066e9.mp4',     'https://telegra.ph/file/4f26132ac0296a34a45a8.mp4']
+conn.sendMessage(m.chat, {
+text: text,
+contextInfo: {
+externalAdReply: {
+title: 'JITOSSA BOT 🧚🏼‍♀️',
+body: "سعيد أنك تستعمل بوت الخاص بنا وسعيد أيضا لدعمنا على إنستجرام ",
+thumbnailUrl: 'https://telegra.ph/file/415de578bf253c0e851e2.jpg',
+sourceUrl: 'https://instagram.com/ovmar_1',
+mediaType: 1,
+renderLargerThumbnail: true
+}}}, { quoted: m})
 
-var vid = vi[Math.floor(Math.random() * (vi.length))]
+    /*conn.sendFile(m.chat, 'menu.png', text.trim(), m, null, )
+    /*conn.sendButton(m.chat, text.trim(), '▢ DyLux  ┃ ᴮᴼᵀ\n▢ Sígueme en Instagram\nhttps://www.instagram.com/fg98_ff', pp, [
+      ['ꨄ︎ Apoyar', `${_p}donate`],
+      ['⏍ Info', `${_p}botinfo`],
+      ['⌬ Grupos', `${_p}gpdylux`]
+    ],m, rpl)*/
 
-                         let hi = `\n\n\t\t _Have a good day ${name}_ \t\t\n\n`
-
-    const totag = { contextInfo: { mentionedJid: [text] }}
-
-    let mtag = text + totag
-
-let ppl = await( await conn.profilePictureUrl(m.sender, 'image').catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'))
-
-    let ppb = await( await conn.profilePictureUrl(conn.user.jid, 'image').catch(() => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'))
-    
-    await m.reply('_Ｌｏａｄｉｎｇ．．．_')
- await conn.relayMessage(m.chat, { reactionMessage: { key: m.key, text: '✅'  }}, { messageId: m.key.id })
-
-//Payment Menu
- /*await conn.relayMessage(m.chat,  {
-    requestPaymentMessage: {
-      currencyCodeIso4217: 'USD',
-      amount1000: 50000000,
-      requestFrom: m.sender,
-      noteMessage: {
-      extendedTextMessage: {
-      text: text.trim(),
-      contextInfo: {
-      externalAdReply: {
-      showAdAttribution: true
-      }}}}}}, {})*/
- //let fkon = { key: { fromMe: false, participant: `${m.sender.split`@`[0]}@s.whatsapp.net`, ...(m.chat ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `${name}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${name}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
-//let fotonya = 'https://telegra.ph/file/d43f196dc3417ca4c5338.jpg'
-// conn.sendMessage(m.chat, { image: { url: fotonya  }, caption: text.trim()}, { quoted: fkon })
-      await conn.sendMessage(m.chat, { text: text.trim(), contextInfo: { externalAdReply: { title: conn.user.name, body: '', thumbnailUrl: ppb, sourceUrl: "https://whatsapp.com/channel/0029Va4gIsn3WHTcFh97VU3s", mediaType: 1, renderLargerThumbnail: true }}})
   } catch (e) {
-    m.reply('An error occurred')
-    m.reply(e)
+    conn.reply(m.chat, '❎ هناك خطأ في لائحة الاوامر', m)
+    throw e
   }
 }
 handler.help = ['menu']
-handler.tags = ['general']
-handler.alias = ['menu', 'help']
-handler.command = /^(menu|help|\?)$/i
-handler.exp = 3
+handler.tags = ['infobot']
+handler.command = ['menu','b','list'] 
+handler.register = false
+
 
 export default handler
 
@@ -162,8 +145,9 @@ const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
 
 function clockString(ms) {
-  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
+  let d = isNaN(ms) ? '--' : Math.floor(ms / 86400000)
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-  return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
+  return [d, 'd ', h, 'h ', m, 'm '].map(v => v.toString().padStart(2, 0)).join('')
 }
