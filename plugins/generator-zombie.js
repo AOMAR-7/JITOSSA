@@ -17,7 +17,7 @@ let handler = async (m, {
     let q = m.quoted ? m.quoted : m;
     let mime = (q.msg || q).mimetype || '';
     if (!mime) {
-        throw 'Tidak ada media yang ditemukan';
+        throw 'رد على الصورة ؟';
     }
     let media = await q.download();
 
@@ -31,7 +31,7 @@ let handler = async (m, {
 
     return conn.sendMessage(m.chat, {
         image: result,
-        caption: `Nih effect *photo-to-zombie* nya\nRequest by: ${tag}`,
+        caption: `*تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1`,
         mentions: [m.sender]
     }, {
         quoted: m
@@ -39,7 +39,7 @@ let handler = async (m, {
 }
 
 handler.help = ["jadizombie"].map(v => v + " (Balas foto)");
-handler.tags = ["tools"];
+handler.tags = ["image-edit"];
 handler.command = /^(jadizombie)$/i;
 handler.limit = true;
 export default handler;
