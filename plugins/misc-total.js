@@ -6,7 +6,7 @@ conn.reply(m.chat, `Total Fitur saat ini: ${totalf}`,m)
 }
 
 handler.help = ['totalfitur']
-handler.tags = ['misc']
+handler.tags = ['owner']
 handler.command = ['totalfitur']
 handler.limit = false
 export default handler 
