@@ -4,36 +4,40 @@ import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 //import { plugins } from '../lib/plugins.js'
 let tags = {
-  'morocco':'  ‎أوامر للمغاربة',
-  'applications':'‎ أوامر التطبيقات‎',
-  'drawing':'‎ توليد الصور‎ أوامر' ,
-  'ai':'‎ الذكاء الاصطناعي‎ أوامر',
+  'morocco':'  ‎قسم للمغاربة',
+  'applications':'‎ قسم التطبيقات‎',
+  'drawing':'‎ توليد الصور‎ قسم' ,
+  'ai':'‎ الذكاء الاصطناعي‎ قسم',
   'infobot':'‎ معلومات البوت‎',
-  'downloader':'‎ أوامر التحميلات',
-  'anime':'‎ أوامر عن  الأنيم',
+  'downloader':'‎ قسم التحميلات',
+  'anime':'‎ قسم عن  الأنيم',
   'islam':'‎ الدين هو الاسلام‎',
-  'owner':'‎ اوامر صاحب البوت',
-  'search':'‎ أوامر البحث',
+  'owner':'‎ قسم مطور البوت',
+  'search':'‎ قسم البحث',
+  'group':' قسم المجموعات',
   'audio-changer':'‎ تعديل الصوتيات‎',
-  'sticker':'‎ أوامر الملصقات',
+  'sticker':'‎ قسم الملصقات',
   'image-edit':'‎ تعديل الصور',
-  'pdf':'‎ pdf ومشتقاته‎',
+  'pdf':'‎ pdfال قسم',
   'uploader':'‎‎ رفع الملفات‎',
 }
 const defaultMenu = {
-  before: `السلام عليكم 👋. 
+  before: `
+*_J I T O S S A_*
 
-┏━━ salam  *%name*
-👥 *Total user:* %totalreg 
-⏰ *Uptime:* %muptime  
-┗━━━━━━━━━━⬣
+
+[ %name السلام عليكم 🙋🏻‍♂️ ]
+
+*_あ Uptime : [ %muptime ]_*
+*_あ Date : [ %date ]_*
+*_あ Database : [ %totalreg ]_*
+
 %readmore
-  ≡ *B O B I Z A | M E N U*
 `.trimStart(),
-  header: '┏━━⊜ *_%category_* ',
-  body: '┃⋄ %cmd %isdiamond %isPremium',
-  footer: '┗━━━━━━━━⬣\n',
-  after: '*إستخدامك للبوت بشكل صحيح يعني أنك تزيد من إحتمالية أن يبقى البوت شغالا لمدة أطول . لذا إن واجهتك أي مشكلة لا تخجل من سؤال صاحب البوت .رقمه سوف تجده في الأسفل + شارك فيديوهات صاحب البوت تشجيعا له ان كان هذا البوت قد نال إعجابك*\n+212605784394',
+  header: '╭┉┉┉≻ *“%category”* ≺┉┉┉',
+  body: `┆ \t ➦ *_%cmd_* `,
+  footer: '┆',
+  after: `╰┉┉┉≻\t _© ${conn.user.name}_ \t`,
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   try {
@@ -136,10 +140,10 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 text: text,
 contextInfo: {
 externalAdReply: {
-title: 'BOBIZA BOT ♥',
-body: "أول بوت واتساب في العالم العربي 💖",
-thumbnailUrl: 'https://telegra.ph/file/2829c7653514416d207e2.jpg',
-sourceUrl: 'https://instagram.com/noureddine_ouafy',
+title: 'JITOSSA 🧚🏼‍♀️',
+body: "سعيد أنك تستعمل جيطوسة بوت",
+thumbnailUrl: 'https://telegra.ph/file/6240a2ed03fe35d028848.jpg',
+sourceUrl: 'https://instagram.com/ovmar_1',
 mediaType: 1,
 renderLargerThumbnail: true
 }}}, { quoted: m})
