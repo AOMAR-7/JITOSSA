@@ -18,7 +18,7 @@ let handler = async (m, {
     }
 }
 handler.help = ['vccgen'].map(v => v + ' (query)')
-handler.tags = ['generator']
+handler.tags = ['tools']
 handler.command = /^(vccgen)$/i
 handler.limit = true
 export default handler
