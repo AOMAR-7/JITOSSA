@@ -12,7 +12,7 @@ let handler = async (m, { conn }) => {
   m.reply(`Dashboard *${conn.user.name}*\n\n${txt}`)
 }
 handler.help = ['dashboard']
-handler.tags = ['misc']
+handler.tags = ['owner']
 handler.command = /^dashboard$/i
 
 export default handler
