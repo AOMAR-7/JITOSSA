@@ -1,26 +1,31 @@
-import uploadImage from '../lib/uploadImage.js';
-const handler = async (m, {conn, text, args, usedPrefix, command}) => {
-const q = m.quoted ? m.quoted : m;
-const mime = (q.msg || q).mimetype || q.mediaType || '';
-if (!/image/g.test(mime)) throw `${lenguajeGB.smsAvisoMG()}${mid.smsconvert}`
-  m.reply(`${lenguajeGB.smsAvisoIIG()}${mid.smsconvert1}`);
-const data = await q.download?.();
-const image = await uploadImage(data);
-try {
-const anime = `https://api.lolhuman.xyz/api/imagetoanime?apikey=${lolkeysapi}&img=${image}`;
-await conn.sendFile(m.chat, anime, 'error.jpg', null, m);
-} catch (i) {
-try {
-const anime2 = `https://api.zahwazein.xyz/photoeditor/jadianime?url=${image}&apikey=${keysxxx}`;
-await conn.sendFile(m.chat, anime2, 'error.jpg', null, m);
-} catch (a) {
-try {
-const anime3 = `https://api.caliph.biz.id/api/animeai?img=${image}&apikey=caliphkey`;
-await conn.sendFile(m.chat, anime3, 'error.jpg', null, m);
-} catch (e) {
-throw `${lenguajeGB.smsAvisoFG()}${mid.smsconvert2}`
-}}}}
-handler.help = ['toanime'];
-handler.tags = ['image-edit'];
-handler.command = /^(jadianime|toanime)$/i;
-export default handler;
+import fetch from 'node-fetch'
+import uploadImage from '../../lib/uploadImage.js'
+import uploadFile from '../../lib/uploadFile.js'
+
+let handler = async (m, {
+    conn,
+    usedPrefix,
+    command,
+    text
+}) => {
+    let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+    let name = await conn.getName(who)
+    let q = m.quoted ? m.quoted : m
+    let mime = (q.msg || q).mimetype || ''
+    if (!mime) throw 'Kirim/Reply Gambar Dengan Caption .toanime'
+    m.reply(wait)
+    try {
+        let media = await q.download()
+        let url = await uploadFile(media)
+        let hasil = `https://api.xyroinee.xyz/api/others/toanime?url=${url}&apikey=${global.xyro}`
+        conn.sendFile(m.chat, await (await fetch(hasil)).arrayBuffer(), 'error.jpg', 'Nih Kak, Maaf Kalau Hasilnya Tidak Sesuai Keinginan', m)
+    } catch (e) {
+        m.reply(eror)
+    }
+}
+handler.help = ['toanime']
+handler.tags = ['drawing']
+handler.command = /^(jadianimex|toanimex)$/i
+handler.limit = true
+
+export default handler
