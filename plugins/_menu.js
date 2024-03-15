@@ -26,7 +26,7 @@ const defaultMenu = {
 *_J I T O S S A_*
 
 
-─── {*Slam🧚🏼‍♀️ %name*} ───
+───{ *Slam🧚🏼‍♀️ %name* }───
 
 *_あ Uptime : [ %muptime ]_*
 *_あ Date : [ %date ]_*
