@@ -4,7 +4,7 @@ function handler(m) {
   this.sendContact(m.chat, data.map(([id, name]) => [id, name]), m)
 }
 handler.help = ['owner', 'creator']
-handler.tags = ['info']
+handler.tags = ['owner']
 
 handler.command = /^(owner|creator)$/i
 
