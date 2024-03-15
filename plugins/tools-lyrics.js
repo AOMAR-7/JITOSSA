@@ -83,7 +83,7 @@ _By zoro bot_
 }
 
 handler.help = ['lyrics'].map(v => v + ' <music text>')
-handler.tags = ['internet']
+handler.tags = ['search']
 handler.command = /^(lirik|lyrics|lyric)$/i
 
 export default handler
