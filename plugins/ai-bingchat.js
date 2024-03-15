@@ -11,7 +11,7 @@ const handler = async (m, {
     } else if (m.quoted && m.quoted.text) {
         text = m.quoted.text;
     } else {
-        throw 'هاذا الأمر خاص بالذكاء الإصناعي والتحدث معه \n\n example: .bingchat hy omar how are u!';
+        throw '*هاذا الأمر خاص بالذكاء الإصناعي والتحدث معه* \n\n مثال \n: _.bingchat hy jitossa how are u!_';
     }
 
     await conn.reply(m.chat, wait, m);
