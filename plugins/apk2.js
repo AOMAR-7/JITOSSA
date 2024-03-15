@@ -2,18 +2,18 @@ import { download } from 'aptoide-scraper';
 
 let handler = async (m, { conn, usedPrefix: prefix, command, text }) => {
   try {
-    if (command === 'modapk', 'apk', 'app') {
-      if (!text) throw `*🕵🏻‍♂️ أرسل إسم التطبيق الذي تريده* \n *مثال* : *.apk facebook lite*`;
-      m.react(rwait)
+    if (command === 'apk') {
+      if (!text) throw `*🦋 Please provide the APK Name you want to download.*`;
+
       await conn.reply(m.chat, global.wait, m);
       let data = await download(text);
 
       if (data.size.replace(' MB', '') > 200) {
-        return await conn.sendMessage(m.chat, { text: '*التطبيق كبير جدا حاول مع تطبيق أخر.  🏃🏻‍♂️.*' }, { quoted: m });
+        return await conn.sendMessage(m.chat, { text: '*🦋 The file is too large.*' }, { quoted: m });
       }
 
       if (data.size.includes('GB')) {
-        return await conn.sendMessage(m.chat, { text: '*التطبيق كبير جدا حاول مع تطبيق أخر 🏃🏻‍♂️.*' }, { quoted: m });
+        return await conn.sendMessage(m.chat, { text: '*🦋 The file is too large.*' }, { quoted: m });
       }
 
       await conn.sendMessage(
@@ -22,13 +22,12 @@ let handler = async (m, { conn, usedPrefix: prefix, command, text }) => {
         { quoted: m }
       )
     }
-  m.react(done)
   } catch {
-    throw `*🕵🏻‍♂️ أرسل إسم التطبيق الذي تريده* \n *مثال* : *.apk facebook lite*`;
+    throw `*🦋 An error occurred. Make sure to provide a valid link.*`;
   }
 };
 
 handler.help = ['apk2']
-handler.tags = ['applications']
-handler.command = ['modapkص', 'apk2', 'app2'];
+handler.tags = ['downloader']
+handler.command = /^apk2$/i;
 export default handler;
