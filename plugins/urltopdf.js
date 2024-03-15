@@ -23,7 +23,7 @@ let handler = async (m, {
         await m.reply('error')
     }
 }
-handler.tags = ["pdf"]
+handler.tags = ["uploader"]
 handler.command = handler.help = ["urltopdf"]
 export default handler
 
