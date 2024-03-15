@@ -21,7 +21,7 @@ let handler = async (m, {
     }
 }
 handler.help = ["gptd4"]
-handler.tags = ["ai"];
+handler.tags = ["internet", "ai", "gpt"];
 handler.command = /^(gptd4)$/i
 
 export default handler
