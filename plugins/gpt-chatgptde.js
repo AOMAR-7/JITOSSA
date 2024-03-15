@@ -7,7 +7,7 @@ let handler = async (m, {
     usedPrefix,
     command
 }) => {
-    if (!m.quoted) return m.reply("Reply Teks/Audio untuk menggunakan gpt ini");
+    if (!m.quoted) return m.reply("*التكلم مع الذكاء الإصطناعي بواصة الأوديو فقط*\n قم باإرسال الأوديو الخاص بك ورد عليه بهاذا الأمر ${usedPrefix}${command}");
 
     try {
         if (m.quoted.text) {
@@ -24,9 +24,9 @@ let handler = async (m, {
     }
 };
 
-handler.help = ["chatgptde"];
-handler.tags = ["gpt"];
-handler.command = /^(chatgptde)$/i;
+handler.help = ["gptaudio"];
+handler.tags = ["ai"];
+handler.command = /^(gptaudio)$/i;
 
 export default handler;
 
