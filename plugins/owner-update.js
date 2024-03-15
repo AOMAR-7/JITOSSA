@@ -7,7 +7,7 @@ let handler = async (m, { conn, isOwner }) => {
     return conn.reply(m.chat, '❌ Only the owner can use this command.', m);
   }
 
-  const repositoryURL = 'https://api.github.com/repos/OVMAR-DEV';
+  const repositoryURL = 'https://api.github.com/repos/OVMAR-DEV/JITOSSA';
 
   try {
     const command = m.text.toLowerCase();
@@ -69,7 +69,7 @@ async function updateBot(conn, m) {
 }
 
 handler.help = ['update', 'update now'];
-handler.tags = ['قائمة مطور البوت'];
+handler.tags = ['owner'];
 handler.command = ['update'];
 handler.owner = true;
 
