@@ -69,7 +69,7 @@ let handler = async (m, {
     }
 }
 handler.help = ["secmail"]
-handler.tags = ["toola"]
+handler.tags = ["tools"]
 handler.command = /^(secmail)$/i
 export default handler
 
