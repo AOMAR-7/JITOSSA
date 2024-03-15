@@ -45,7 +45,7 @@ let handler = async function (m, { conn, __dirname }) {
 };
 
 handler.help = ['script'];
-handler.tags = ['main'];
+handler.tags = ['owner'];
 handler.command = ['sc', 'repo', 'script'];
 
 export default handler;
