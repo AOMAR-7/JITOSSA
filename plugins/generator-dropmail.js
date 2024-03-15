@@ -10,9 +10,9 @@ let handler = async (m, {
     let id = "dropmail"
 
     let lister = [
-        "create",
-        "message",
-        "delete"
+        "إنشاء",
+        "الرسائل",
+        "حدف"
     ]
 
     let [feature, inputs, inputs_, inputs__, inputs___] = text.split(" ")
@@ -20,13 +20,13 @@ let handler = async (m, {
 
     if (lister.includes(feature)) {
 
-        if (feature == "create") {
+        if (feature == "إنشاء") {
 
             try {
                 let eml = await random_mail()
                 let timeDiff = new Date(eml[2]) - new Date()
                 conn.dropmail[id] = [
-                    await m.reply("*EMAIL:*\n" + eml[0] + "\n\n" + "*ID:*\n" + eml[1] + "\n\n*Expired:*\n" + msToTime(timeDiff) + "\n\n_Ketik *" + usedPrefix + command + " message* Untuk mengecek inbox_"),
+                    await m.reply("*الإيميل:*\n" + eml[0] + "\n\n" + "*رقم التعريف:*\n" + eml[1] + "\n\n*تاريخ الإنتهاء:*\n" + msToTime(timeDiff) + "\n\n_تححق من *" + usedPrefix + command + " الرسائل*_\n\n *للحصول على رسائلك الجديدة*"),
                     eml[0],
                     eml[1],
                     eml[2]
@@ -36,8 +36,8 @@ let handler = async (m, {
             }
         }
 
-        if (feature == "message") {
-            if (!conn.dropmail[id]) return m.reply("Tidak ada pesan, buat email terlebih dahulu\nKetik *" + usedPrefix + command + " create*")
+        if (feature == "الرسائل") {
+            if (!conn.dropmail[id]) return m.reply("*لايوجد أي إيميل لك*\nأكتب *" + usedPrefix + command + " إنشاء*\n\n للحصول على إيميل جديد")
 
             try {
                 let eml = await get_mails(conn.dropmail[id][2])
@@ -52,17 +52,17 @@ let handler = async (m, {
 *Download* : ${v.downloadUrl}
    `.trim()
                 }).filter(v => v).join("\n\n________________________\n\n")
-                await m.reply(teks || "*KOSONG*" + "\n\n_Ketik *" + usedPrefix + command + " delete* Untuk menghapus email_")
+                await m.reply(teks || "*لايوجد أي رسالة*" + "\n\n_أكتب *" + usedPrefix + command + "حدف لحدف الإيميل والحصول على واجد جديد_")
             } catch (e) {
                 await m.reply(eror)
             }
         }
-        if (feature == "delete") {
-            if (!conn.dropmail[id]) return m.reply("Tidak ada email yang terpakai")
+        if (feature == "حدف") {
+            if (!conn.dropmail[id]) return m.reply("*لا يوجد أي إيميل لكي تقوم بحدفه حاول إنشاء واحد أخر*")
 
             try {
                 delete conn.dropmail[id]
-                await m.reply("Sukses menghapus email")
+                await m.reply("ثم حدف الإيميل بنجاح ✅")
             } catch (e) {
                 await m.reply(eror)
             }
@@ -71,7 +71,7 @@ let handler = async (m, {
     }
 }
 handler.help = ["dropmail"]
-handler.tags = ["misc"]
+handler.tags = ["tools"]
 handler.command = /^(dropmail)$/i
 export default handler
 
