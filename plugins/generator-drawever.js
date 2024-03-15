@@ -43,7 +43,7 @@ const handler = async (m, {
     try {
         let q = m.quoted ? m.quoted : m
         let mime = (q.msg || q).mimetype || q.mediaType || ''
-        if (!/image|viewOnce/g.test(mime)) return m.reply(`Reply Media dengan perintah\n*${usedPrefix + command}*`)
+        if (!/image|viewOnce/g.test(mime)) return m.reply(`*هاذا الأمر يقوم بتحويل الصورة إلى أنمي فقط قم بالرد على أي صورة* \nبهاذا الأمر\n*${usedPrefix + command}*`)
         let img = await q.download?.()
         let output = await processImage(img, 'Sukses Cik')
         await m.reply(output)
@@ -52,7 +52,7 @@ const handler = async (m, {
     }
 }
 handler.help = ["drawever"]
-handler.tags = ['maker']
+handler.tags = ['image-edit']
 handler.command = ["drawever"]
 
 export default handler
