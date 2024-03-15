@@ -23,13 +23,13 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-*_J I T O S S A_*
-
-
-───{ *Slam🧚🏼‍♀️ %name* }───
-
-*_あ Uptime : [ %muptime ]_*
-*_あ Date : [ %date ]_*
+╭─┉┉┉┉┈◈ *INFO* ◈┈┉┉┉┉┉
+ ⁝ 📛 *Name:* ${global.botname}
+ ⁝ 🧮 *Total:* ${totalf} + Features
+ ⁝ 💠 *Version:* V1.2.1
+ ⁝ ⚒️ *Deployed:* ${global.author}
+ ⁝ 👨‍💻 *Developer:* Ovmar Devs ❤️✨
+╰┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
 
 %readmore
 `.trimStart(),
