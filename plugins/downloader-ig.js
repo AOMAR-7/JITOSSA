@@ -24,14 +24,14 @@ for (let i = 0; i < img.length; i++) {
     for (const urRRl of datTa) {
       const shortUrRRl = await (await fetch(`https://tinyurl.com/api-create.php?url=${args[0]}`)).text();
       const tXXxt = `_*< DESCARGAS - INSTAGRAM />*_\n\n▢ *URL:* _${shortUrRRl}_`.trim();
-      conn.sendFile(m.chat, urRRl.url, 'error.mp4', tXXxt, m);
+      conn.sendFile(m.chat, urRRl.url, 'error.mp4', `*تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1`, m);
       await new Promise((resolve) => setTimeout(resolve, 10000));
     }
   } catch {
       try {
         const resultss = await instagramGetUrl(args[0]).url_list[0];
         const shortUrl2 = await (await fetch(`https://tinyurl.com/api-create.php?url=${args[0]}`)).text();
-        const txt2 = `_*< DESCARGAS - INSTAGRAM />*_\n\n▢ *URL:* _${shortUrl2}_`.trim();
+        const txt2 = `*تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1`.trim();
         await conn.sendFile(m.chat, resultss, 'error.mp4', txt2, m);
       } catch {
         try {
