@@ -9,7 +9,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 				let q = m.quoted ? m.quoted : m;
 				let mime = (q.msg || q).mimetype || q.mediaType || "";
 				if (!mime)
-					throw `photo?`;
+					throw `*خاص بتحويل جودة الصورة إلى جودة أحسن* \n\n قم بالرد على الصورة التى تريدها مع ${usedPrefix}${command}?`;
 				if (!/image\/(jpe?g|png)/.test(mime))
 					throw `Mime ${mime} tidak support`;
 				else conn.enhancer[m.sender] = true;
@@ -44,7 +44,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 				let error;
 				try {
 					const This = await processing(img, "recolor");
-					conn.sendFile(m.chat, This, "", "Nih...", m);
+					conn.sendFile(m.chat, This, "", "*تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1", m);
 				} catch (er) {
 					error = true;
 				} finally {
@@ -70,7 +70,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 				let error;
 				try {
 					const This = await processing(img, "enhance");
-					conn.sendFile(m.chat, This, "", "Nih...", m);
+					conn.sendFile(m.chat, This, "", "*تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1", m);
 				} catch (er) {
 					error = true;
 				} finally {
@@ -84,7 +84,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 	}
 };
 handler.help = ["dehaze","recolor","hdr"];
-handler.tags = ["edit-image"];
+handler.tags = ["image-edit"];
 handler.command = ["dehaze","recolor","hdr"];
 export default handler;
 
