@@ -11,7 +11,7 @@ let handler = async (m, {
         text = args.slice(0).join(" ")
     } else if (m.quoted && m.quoted.text) {
         text = m.quoted.text
-    } else throw "Input Teks"
+    } else throw "يقوم هاذا الأمر بجعلك تتحدث مع الذك*اء الإصطناعي ب الأديو والكتابة معا* \n \n قم باإرسال الأوديو أو سؤال الخاص بك بعدها\n مثال: ${usedPrefix}${command} عاصمة المغرب"
     await m.reply(wait)
     try {
         let res = await ChatGpt(text)
