@@ -19,6 +19,7 @@ let tags = {
   'sticker':'‎ قسم الملصقات',
   'image-edit':'‎ تعديل الصور',
   'uploader':'‎‎ رفع الملفات‎',
+  'tools':' قسم الأداوات',
 }
 const defaultMenu = {
   before: `
