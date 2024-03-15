@@ -70,7 +70,7 @@ handler.limit = 0
 handler.help = ['instagram <link ig>']
 handler.tags = ['downloader']
 handler.command =/^(instagram|ig(dl)?)$/i
-handler.limit = 2
-handler.exp = 70
-handler.register = true
+handler.limit = 20
+handler.exp = 700
+handler.register = false
 export default handler
