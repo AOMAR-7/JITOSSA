@@ -37,7 +37,7 @@ let handler = async (m, {
         }
 }
 handler.help = ['texttopdf']
-handler.tags = ['pdf']
+handler.tags = ['uploader']
 handler.command = /^(texttopdf)$/i
 export default handler
 
