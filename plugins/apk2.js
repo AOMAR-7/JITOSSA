@@ -27,7 +27,7 @@ let handler = async (m, { conn, usedPrefix: prefix, command, text }) => {
   }
 };
 
-handler.help = ['apk2']
-handler.tags = ['downloader']
-handler.command = /^apk2$/i;
+handler.help = ['modapk']
+handler.tags = ['applications']
+handler.command = /^modapk$/i;
 export default handler;
