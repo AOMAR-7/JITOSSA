@@ -25,11 +25,10 @@ const defaultMenu = {
 *_J I T O S S A_*
 
 
-[ %name السلام عليكم 🙋🏻‍♂️ ]
+─── {*Slam🧚🏼‍♀️ %name*} ───
 
 *_あ Uptime : [ %muptime ]_*
 *_あ Date : [ %date ]_*
-*_あ Database : [ %totalreg ]_*
 
 %readmore
 `.trimStart(),
