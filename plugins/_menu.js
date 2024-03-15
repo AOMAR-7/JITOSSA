@@ -23,10 +23,6 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-╭─┉┉┉┉┈◈ *INFO* ◈┈┉┉┉┉┉
- ⁝ 
-╰┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
-
 %readmore
 `.trimStart(),
   header: '╭┉┉┉≻ *“%category”* ≺┉┉┉',
