@@ -19,9 +19,9 @@ let handler = async (m) => {
 		m.reply(shorten)
 	} else throw 'No media found'
 }
-handler.help = ['tourl']
-handler.tags = ['tools']
-handler.command = /^(upload|tourl)$/i
+handler.help = ['tourl2']
+handler.tags = ['uploader']
+handler.command = /^(upload2|tourl2)$/i
 
 export default handler
 
