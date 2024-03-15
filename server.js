@@ -21,7 +21,7 @@ function connect(conn, PORT) {
   });
 
   server.listen(PORT, () => {
-    console.log('[ ℹ️ ] La aplicación está escuchando el puerto', PORT, '(ignorar si ya escaneo el código QR)');
+    console.log('LBOT KHDAM SBR WHD XWYA ', PORT, '(QR KHDAM SBR WHD XWYA)');
     if (opts['keepalive']) keepAlive();
   });
 }
