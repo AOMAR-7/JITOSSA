@@ -42,7 +42,7 @@ let handler = async (m, {
 }
 
 handler.help = ["freepik"]
-handler.tags = ["internet"]
+handler.tags = ["search"]
 handler.command = /^freepik$/i
 
 export default handler
