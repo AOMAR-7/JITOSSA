@@ -19,7 +19,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
 
 handler.help = ['animediff <text>']
-handler.tags = ['ai']
+handler.tags = ['drawing']
 handler.command = /^(animediff)$/i
 
 export default handler
