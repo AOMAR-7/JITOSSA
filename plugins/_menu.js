@@ -18,7 +18,6 @@ let tags = {
   'audio-changer':'‎ تعديل الصوتيات‎',
   'sticker':'‎ قسم الملصقات',
   'image-edit':'‎ تعديل الصور',
-  'pdf':'‎ pdfال قسم',
   'uploader':'‎‎ رفع الملفات‎',
 }
 const defaultMenu = {
