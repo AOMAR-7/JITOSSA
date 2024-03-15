@@ -11,7 +11,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 }
 
 handler.help = ['ptvtovideo','tomp4']
-handler.tags = ['tools']
+handler.tags = ['image-edit']
 handler.command = /^((ptv)?to(mp4|video))$/i
 
 export default handler
