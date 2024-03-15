@@ -22,7 +22,13 @@ let tags = {
   'tools':' قسم الأداوات',
 }
 const defaultMenu = {
-  before: `
+before: `╭─┉┉┉┉┈◈ *INFO* ◈┈┉┉┉┉┉𓆩ꨄ︎𓆪
+ ⁝ 📛 *Name:* ${global.botname}
+ ⁝ 🧮 *Total:* ${totalf} + Features
+ ⁝ 💠 *Version:* V1.2.1
+ ⁝ ⚒️ *Deployed:* ${global.author}
+ ⁝ 👨‍💻 *Developer:* Shizo Devs ❤️✨
+╰┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉𓆩ꨄ︎𓆪
 %readmore
 `.trimStart(),
   header: '╭┉┉┉≻ *“%category”* ≺┉┉┉',
