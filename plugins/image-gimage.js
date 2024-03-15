@@ -52,7 +52,7 @@ var handler = async (m, { conn, text, usedPrefix, command }) => {
 }
 
 handler.help = ['gimage < query >', 'image < query >'];
-handler.tags = ['drawing'];
+handler.tags = ['image-edit'];
 handler.command = /^(gimage|image|googleimage|googleimg|gimg)$/i;
 
 export default handler;
