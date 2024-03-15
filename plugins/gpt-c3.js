@@ -3,7 +3,7 @@ import axios from 'axios';
 const handler = async (m, {
     text
 }) => {
-    if (!text) throw 'Contoh: .gptc3 Pesan yang ingin Anda sampaikan kepada asisten AI';
+    if (!text) throw 'مثال\n: .gpt: عاصمة المغرب ';
 
     m.reply(wait);
     const messages = encodeURIComponent(text)
@@ -19,9 +19,9 @@ const handler = async (m, {
     }
 };
 
-handler.help = ['gptc3'];
-handler.tags = ['ai', 'gpt'];
-handler.command = /^(gptc3)$/i;
+handler.help = ['gpt'];
+handler.tags = ['ai'];
+handler.command = /^(gpt)$/i;
 
 export default handler;
 
