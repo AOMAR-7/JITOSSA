@@ -11,6 +11,6 @@ const handler = async (m, {conn, usedPrefix, command}) => {
 };
 ;
 handler.help = ["tomp3"]
-handler.tags = ["tools"]
+handler.tags = ["uploader"]
 handler.command = /^(tomp3)$/i
 export default handler;
