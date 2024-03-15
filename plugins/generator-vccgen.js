@@ -8,10 +8,10 @@ let handler = async (m, {
     usedPrefix,
     command
 }) => {
-    if (!text) throw 'Input query and caption required\n*Example:* ' + usedPrefix + command + ' 516088';
+    if (!text) throw '*هاذا الأمر يقوم بتوليد فيزات وهمية*\n*مثال:* ' + usedPrefix + command + ' 516088';
     try {
         const result = await GenerateCC(text)
-        const formattedList = result.map((card, index) => `- *CARD ${index + 1}:*\n  Card Number: ${card.CardNumber}\n  Expiration Date: ${card.ExpirationDate}\n  CVV: ${card.CVV}`).join('\n\n');
+        const formattedList = result.map((card, index) => `- *البطاقة ${index + 1}:*\n  بطاقة الرقم: ${card.CardNumber}\n  التاريخ: ${card.ExpirationDate}\n  رمز بطاقة: ${card.CVV}`).join('\n\n');
         await m.reply(formattedList);
     } catch (e) {
         await m.reply('Error occurred');
