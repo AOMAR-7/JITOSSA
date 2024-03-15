@@ -5,7 +5,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     m.reply("*تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1")
 
     try {
-        let response = await fetch(`https://api.maelyn.my.id/api/bingimage?prompt=${text}&apikey=nkI6Qg3tfZ`)
+        let response = await fetch(`https://api.maelyn.my.id/api/bingimage?prompt=${text}&apikey=p5iVEoMqWz`)
         let result = await response.json()
 
         if (result.status === "Success" && result.result.length > 0) {
