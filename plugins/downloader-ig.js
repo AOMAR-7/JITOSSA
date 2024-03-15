@@ -18,7 +18,7 @@ const fkontak = {
         }, 
         "participant": "0@s.whatsapp.net"
     }
-if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsInsta}\n*${usedPrefix + command} https://www.instagram.com/p/CCoI4DQBGVQ/?igshid=YmMyMTA2M2Y=*`
+//if (!args[0]) throw `${lenguajeGB['smsAvisoMG']()}${mid.smsInsta}\n*${usedPrefix + command} https://www.instagram.com/p/CCoI4DQBGVQ/?igshid=YmMyMTA2M2Y=*`
   const { key } = await conn.sendMessage(m.chat, {text: wait}, {quoted: fkontak});
 // await delay(1000 * 2);
 await conn.sendMessage(m.chat, {text: waitt, edit: key});
@@ -30,7 +30,7 @@ const responsel = await axios.get(apiUrll);
 const resultl = responsel.data;
 for (const item of resultl.message) {
 const shortUrRRl = await (await fetch(`https://tinyurl.com/api-create.php?url=${item.thumbnail}`)).text();
-let tXXxt = `✨ *ENLACE | URL:* ${shortUrRRl}\n\n${wm}`.trim()  
+let tXXxt = `*تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1`.trim()  
 conn.sendFile(m.chat, item._url, null, tXXxt, m);
 await new Promise((resolve) => setTimeout(resolve, 10000));
 }} catch {    
@@ -45,13 +45,13 @@ await new Promise((resolve) => setTimeout(resolve, 10000));
 try {
 const resultss = await instagramGetUrl(args[0]).url_list[0];
 const shortUrl2 = await (await fetch(`https://tinyurl.com/api-create.php?url=${args[0]}`)).text();
-const txt2 = `✨ *ENLACE | URL:* ${shortUrl2}\n\n${wm}`.trim();
+const txt2 = `*تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1\n\n${wm}`.trim();
 await conn.sendFile(m.chat, resultss, 'error.mp4', txt2, m);
 } catch {
 try {
 const resultssss = await instagramdl(args[0]);
 const shortUrl3 = await (await fetch(`https://tinyurl.com/api-create.php?url=${args[0]}`)).text();
-const txt4 = `✨ *ENLACE | URL:* ${shortUrl3}\n\n${wm}`.trim();
+const txt4 = `*تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1\n\n${wm}`.trim();
 for (const {url} of resultssss) await conn.sendFile(m.chat, url, 'error.mp4', txt4, m);
 } catch {
 try {
@@ -59,7 +59,7 @@ const human = await fetch(`https://api.lolhuman.xyz/api/instagram?apikey=${lolke
 const json = await human.json();
 const videoig = json.result;
 const shortUrl1 = await (await fetch(`https://tinyurl.com/api-create.php?url=${args[0]}`)).text();
-const txt1 = `✨ *ENLACE | URL:* ${shortUrl1}\n\n${wm}`.trim();
+const txt1 = `*تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1\n\n${wm}`.trim();
 await conn.sendFile(m.chat, videoig, 'error.mp4', txt1, m);
 } catch (e) {
 conn.sendMessage(m.chat, {text: `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, edit: key});
