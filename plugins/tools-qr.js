@@ -5,7 +5,7 @@ let handler = async (m, { conn, text }) => {
   conn.sendFile(m.chat, await toDataURL(text.slice(0, 2048), { scale: 8 }), 'qrcode.png', 'Here', m)
 }
 handler.help = ['', 'code'].map(v => 'qr' + v + ' <text>')
-handler.tags = ['tools']
+handler.tags = ['uploader']
 handler.command = /^qr(code)?$/i
 
 
