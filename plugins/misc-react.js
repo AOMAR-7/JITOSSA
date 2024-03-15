@@ -13,7 +13,7 @@ key: {
  }
 
 handler.help = ['react']
-handler.tags = ['misc']
+handler.tags = ['owner']
 handler.command = /^(react)$/i
 
 export default handler
