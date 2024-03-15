@@ -36,8 +36,8 @@ let weem2 = ``
 		m.reply(stiker)
 	}
 }
-handler.help = ['stiker']
-handler.tags = ['general']
+handler.help = ['stiker,' 'sgif']
+handler.tags = ['sticker']
 handler.alias = ['stiker', 'sticker', 'sgif', 'stikergif', 'stickergif']
 handler.command = /^s(tic?ker)?(gif)?$/i
 
