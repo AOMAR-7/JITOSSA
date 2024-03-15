@@ -190,7 +190,7 @@ let handler = async (m, { command, usedPrefix, conn, args }) => {
 };
 
 handler.help = ["short"];
-handler.tags = ["tools"];
+handler.tags = ["uploader"];
 handler.command = /^short?$/i;
 
 export default handler;
