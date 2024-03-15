@@ -5,7 +5,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   let mime = q.mediaType || ''
   if (/webp/.test(mime)) throw notStickerMessage
   let media = await q.download()
-  await conn.sendMessage(m.chat, {image: media, caption: 'instagram.com/noureddine_ouafy'}, {quoted: m})
+  await conn.sendMessage(m.chat, {image: media, caption: '*تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1'}, {quoted: m})
 }
 handler.help = ['toimg2']
 handler.tags = ['sticker']
