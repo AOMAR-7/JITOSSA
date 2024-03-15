@@ -19,9 +19,9 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 	}
 }
 
-handler.help = ['ppcouple']
-handler.tags = ['weebs']
-handler.command = /^((pp)?couple|ppcp)$/i
+handler.help = ['ppcouple2']
+handler.tags = ['anime']
+handler.command = /^((pp2)?couple2|ppcp2)$/i
 
 export default handler
 
