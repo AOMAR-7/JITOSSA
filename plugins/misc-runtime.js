@@ -5,7 +5,7 @@ conn.sendMessage(m.chat, {text: teks, jpegThumbnail:  global.thumb}, { quoted: m
 }
 
 handler.help = ['run=time']
-handler.tags = ['misc']
+handler.tags = ['owner']
 handler.command = /^(up|run)time$/i
 
 function clockString(ms) {
