@@ -34,7 +34,7 @@ ${text}
 }
 
 handler.help = ['pinterest <keyword>']
-handler.tags = ['internet']
+handler.tags = ['downloader']
 handler.command = /^(pinterest|pin)$/i
 
 export default handler
