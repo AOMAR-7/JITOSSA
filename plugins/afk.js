@@ -7,7 +7,7 @@ ${conn.getName(m.sender)} ثم أخد إستراحة من إستخدام الب�
 `)
 }
 handler.help = ['afk [reason]']
-handler.tags = ['main']
+handler.tags = ['tools']
 handler.command = /^afk$/i
 
 export default handler
