@@ -15,7 +15,7 @@ const handler = async (m, {conn, usedPrefix, command}) => {
  }
 };
 handler.help = ["remini", "hd", "enhance"];
-handler.tags = ["edit-image"];
+handler.tags = ["image-edit"];
 handler.command = ["remini", "hd", "enhance"];
 export default handler;
 
