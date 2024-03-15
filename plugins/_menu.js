@@ -24,11 +24,7 @@ let tags = {
 const defaultMenu = {
   before: `
 ╭─┉┉┉┉┈◈ *INFO* ◈┈┉┉┉┉┉
- ⁝ 📛 *Name:* ${global.botname}
- ⁝ 🧮 *Total:* ${totalf} + Features
- ⁝ 💠 *Version:* V1.2.1
- ⁝ ⚒️ *Deployed:* ${global.author}
- ⁝ 👨‍💻 *Developer:* Ovmar Devs ❤️✨
+ ⁝ 
 ╰┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉┉
 
 %readmore
