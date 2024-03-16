@@ -9,11 +9,11 @@ let handler = async (m, {
     command
 }) => {
     await m.reply(wait)
-    if (!text) return m.reply('input number')
+    if (!text) return m.reply('إختر رقم')
     if (text == '1') {
         try {
             let resl = await animeVideo()
-            let cap = `📝 *Title:* ${resl.title}`
+            let cap = `📝 *وصف:* أنا لاأتحمل مسؤلية طلبك لهاذا الأمر إذا كان في الفيديو أي شدود أو تعرى أو إنحراف فأنا لست مسؤول عن عمل البوت وماذا تطلبه ❤️‍🩹`
             await conn.sendFile(m.chat, resl.source, "", cap, m)
         } catch (e) {
             await m.reply(eror)
