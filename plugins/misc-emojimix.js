@@ -14,7 +14,7 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
 }
 
 handler.help = ['emojimix']
-handler.tags = ['misc']
+handler.tags = ['sticker']
 handler.command = /^(emojimix|emix)$/i
 
 export default handler
