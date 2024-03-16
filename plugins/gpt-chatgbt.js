@@ -7,7 +7,7 @@ let handler = async (m, {
     usedPrefix,
     command
 }) => {
-    if (!m.quoted) return m.reply("Reply Teks/Audio untuk menggunakan gpt ini");
+    if (!m.quoted) return m.reply("التواصل مع الذكاء الإصطناعي بالصوت فقط قم باإرسال الأوديو الخاص بك فيه سؤال الذي تريده وسوف يجيبك عليه \n\n أرسل الأوديو أولا ثم أرسل هاذا الأمر \n ${usedPrefix}${command}");
 
     try {
         if (m.quoted.text) {
@@ -19,14 +19,14 @@ let handler = async (m, {
             await m.reply(res.data);
         }
     } catch (e) {
-        console.error('An error occurred:', e.message);
-        await m.reply('Error occurred. Please try again.');
+        console.error('حدث خطأ:::', e.message);
+        await m.reply('أسف هناك خطأ حاول مرة أخرى.');
     }
 };
 
-handler.help = ["chatgbt"];
-handler.tags = ["gpt"];
-handler.command = /^(chatgbt)$/i;
+handler.help = ["gptaudio2 <أوديو>"];
+handler.tags = ["ai"];
+handler.command = /^(gptaudio2)$/i;
 
 export default handler;
 
