@@ -4,7 +4,7 @@ import { ffmpeg } from '../lib/converter.js'
 let handler = async (m, { conn }) => {
     if (!m.quoted) 'قم بالرد على الفيديو الذي تريد تحويله الى ملصق'
     let mime = m.quoted.mimetype || ''
-    if (!/webp|audio/.test(mime)) throw '✳️ Respond to an animated sticker'
+    if (!/webp|audio/.test(mime)) throw 'يقوم هاذا الأمر بتحويل gif إلى فيديو \n\n قم بالرد على النلصق بهاذا الأمر \n ${usedPrefix}${command}'
     let media = await m.quoted.download()
     let out = Buffer.alloc(0)
     if (/webp/.test(mime)) {
