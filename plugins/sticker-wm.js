@@ -1,27 +1,27 @@
-import { addExif } from '../lib/sticker.js'
 
-let handler = async (m, { conn, text }) => {
-  if (!m.quoted) throw 'Reply a sticker!'
+import { addExif } from '../lib/sticker.js'
+let handler = async (m, { conn, text, args }) => {
+  if (!m.quoted) throw 'رد على الملصق ثم أكتب \n ${usedPrefix}${command} < اسم الذي تريد>'
   let stiker = false
+       let stick = args.join(" ").split("|");
+       let f = stick[0] !== "" ? stick[0] : packname;
+       let g = typeof stick[1] !== "undefined" ? stick[1] : author;
   try {
-    let [packname, ...author] = text.split('|')
-    author = (author || []).join('|')
     let mime = m.quoted.mimetype || ''
-    if (!/webp/.test(mime)) throw 'رد على الملصق'
+    if (!/webp/.test(mime)) throw 'respond to a sticker'
     let img = await m.quoted.download()
-    if (!img) throw 'رد على الملصق'
-    stiker = await addExif(img, packname || '', author || '')
+    if (!img) throw ''
+    stiker = await addExif(img, f, g)
   } catch (e) {
     console.error(e)
     if (Buffer.isBuffer(e)) stiker = e
   } finally {
-    if (stiker) conn.sendMessage(m.chat, { sticker: stiker }, { quoted: m })
-    else throw 'Conversion failed'
+    if (stiker) conn.sendFile(m.chat, stiker, 'wm.webp', '', m, null, rpl)
+     else throw 'conversion failed'
   }
 }
-handler.help = ['wm']
+handler.help = ['take <name>|<author>']
 handler.tags = ['sticker']
-handler.alias = ['wm', 'take']
-handler.command = /^(take|wm)$/i
+handler.command = ['take', 'wm'] 
 
 export default handler
