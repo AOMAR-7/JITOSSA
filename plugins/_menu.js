@@ -24,7 +24,7 @@ let tags = {
 const defaultMenu = {
   before: `
 ┌─〔 JιTOSSA 〕
-├ SALAM %name*
+├ _SALAM %name_
 │
 ├ 
 ├ Islam time: *%dateIslamic*
@@ -34,7 +34,7 @@ const defaultMenu = {
 ├ %github
 └────
 %readmore`.trim(),
-  header: '┌─〔 *%category* 〕',
+  header: '┌─〔 %category 〕',
   body: '├ _*%cmd*_',
   footer: '└────\n',
   after: `*%npmname@^%version*
