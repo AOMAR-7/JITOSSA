@@ -23,26 +23,19 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-┌─〔 %me 〕
-├ *%ucapan %name*
+┌─〔 JιTOSSA 〕
+├ SALAM %name*
 │
-├ Tersisa *%limit Limit*
-├ Role *%role*
-├ Level *%level (%exp / %maxexp)* [%xp4levelup]
-├ %totalexp XP secara Total
-│
-├ Tanggal: *%week %weton, %date*
-├ Tanggal Islam: *%dateIslamic*
-├ Waktu: *%time*
-│
-├ Uptime: *%uptime (%muptime)*
-├ Database: %rtotalreg dari %totalreg
-├ Github:
+├ 
+├ Islam time: *%dateIslamic*
+├ 
+├ Uptime: *%uptime
+├ _LINK REPO_
 ├ %github
 └────
 %readmore`.trim(),
-  header: '┌─〔 %category 〕',
-  body: '├ %cmd %islimit %isPremium',
+  header: '┌─〔 *%category* 〕',
+  body: '├ _*%cmd*_',
   footer: '└────\n',
   after: `*%npmname@^%version*
 ${'```%npmdesc```'}
