@@ -34,11 +34,11 @@ const defaultMenu = {
 ├ %github
 └────
 %readmore`.trim(),
-  header: '┌─〔 %category 〕',
-  body: '├ _*%cmd*_',
+  header: '┌─〔 *%category* 〕',
+  body: '├ _%cmd_',
   footer: '└────\n',
   after: `*%npmname@^%version*
-${'```%npmdesc```'}
+${%npmdesc}
 `,
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
