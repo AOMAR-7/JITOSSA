@@ -22,20 +22,31 @@ let tags = {
   'tools':' قسم الأداوات',
 }
 const defaultMenu = {
-before: `
-
-╭┉┉┉≻ salam  *%name*
-┆👥 *Total user:* [%totalreg]  
-┆⏳ *date: [%date] 
-╰┉┉┉┉┉┉┉┉≻
-
-
-%readmore
-`.trimStart(),
-  header: '╭┉┉┉≻ *“%category”* ≺┉┉┉',
-  body: `┆ \t ➦ *_%cmd_* `,
-  footer: '┆',
-  after: `╰┉┉┉≻\t _© ${conn.user.name}_ \t`,
+  before: `
+┌─〔 %me 〕
+├ *%ucapan %name*
+│
+├ Tersisa *%limit Limit*
+├ Role *%role*
+├ Level *%level (%exp / %maxexp)* [%xp4levelup]
+├ %totalexp XP secara Total
+│
+├ Tanggal: *%week %weton, %date*
+├ Tanggal Islam: *%dateIslamic*
+├ Waktu: *%time*
+│
+├ Uptime: *%uptime (%muptime)*
+├ Database: %rtotalreg dari %totalreg
+├ Github:
+├ %github
+└────
+%readmore`.trim(),
+  header: '┌─〔 %category 〕',
+  body: '├ %cmd %islimit %isPremium',
+  footer: '└────\n',
+  after: `*%npmname@^%version*
+${'```%npmdesc```'}
+`,
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   try {
