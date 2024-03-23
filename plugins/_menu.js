@@ -22,36 +22,50 @@ let tags = {
   'tools':' قسم الأداوات',
 }
 const defaultMenu = {
-  before: `
-*JITOSSA MD*
+    before: `السلام عليكم 👋. 
 
-❏ HY *%name*
-❏ %dateIslamic*
-❏ *%uptime*
-
+┏━━ salam  *%name*
+👥 *Total user:* %totalreg 
+⏰ *Uptime:* %muptime  
+┗━━━━━━━━━━⬣
 %readmore
+  ≡ *B O B I Z A | M E N U*
 `.trimStart(),
-  header: '╭┉┉┉≻ *“%category”* ≺┉┉┉',
-  body: `┆ \t ➦ _%cmd`,
-  footer: '┆',
-  after: `╰┉┉┉≻\t _© ${conn.user.name}_ \t`,
+  header: '┏━━⊜ *_%category_* ',
+  body: '┃⋄ %cmd %isdiamond %isPremium',
+  footer: '┗━━━━━━━━⬣\n',
+  after: '*إستخدامك للبوت بشكل صحيح يعني أنك تزيد من إحتمالية أن يبقى البوت شغالا لمدة أطول . لذا إن واجهتك أي مشكلة لا تخجل من سؤال صاحب البوت .رقمه سوف تجده في الأسفل + شارك فيديوهات صاحب البوت تشجيعا له ان كان هذا البوت قد نال إعجابك*\n+212717457920',
 }
+let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   try {
-    let name = m.pushName || conn.getName(m.sender)
+    let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
+    let { exp, diamond, level, role } = global.db.data.users[m.sender]
+    let { min, xp, max } = xpRange(level, global.multiplier)
+    let name = await conn.getName(m.sender)
     let d = new Date(new Date + 3600000)
-    let locale = 'en'
+    let locale = 'ar'
     // d.getTimeZoneOffset()
     // Offset -420 is 18.00
     // Offset    0 is  0.00
     // Offset  420 is  7.00
+    let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
+    let week = d.toLocaleDateString(locale, { weekday: 'long' })
     let date = d.toLocaleDateString(locale, {
       day: 'numeric',
       month: 'long',
-      year: 'numeric',
-      timeZone: 'Asia/Kolkata'
+      year: 'numeric'
     })
-    let time = d.toLocaleTimeString(locale, { timeZone: 'Asia/Kolkata' })
-    time = time.replace(/[.]/g, ':')
+    let dateIslamic = Intl.DateTimeFormat(locale + '-TN-u-ca-islamic', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    }).format(d)
+    let time = d.toLocaleTimeString(locale, {
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric'
+    })
+    let _uptime = process.uptime() * 1000
     let _muptime
     if (process.send) {
       process.send('uptime')
@@ -60,26 +74,16 @@ const defaultMenu = {
         setTimeout(resolve, 1000)
       }) * 1000
     }
-    
-    let _uptime
-    if (process.send) {
-      process.send('uptime')
-      _uptime = await new Promise(resolve => {
-        process.once('message', resolve)
-        setTimeout(resolve, 1000)
-      }) * 1000
-    }
-
-    let totalreg = Object.keys(global.db.data.users).length
-    let platform = os.platform()
     let muptime = clockString(_muptime)
     let uptime = clockString(_uptime)
+    let totalreg = Object.keys(global.db.data.users).length
+    let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
     let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(plugin => {
       return {
         help: Array.isArray(plugin.tags) ? plugin.help : [plugin.help],
         tags: Array.isArray(plugin.tags) ? plugin.tags : [plugin.tags],
         prefix: 'customPrefix' in plugin,
-        limit: plugin.limit,
+        diamond: plugin.diamond,
         premium: plugin.premium,
         enabled: !plugin.disabled,
       }
@@ -93,16 +97,16 @@ const defaultMenu = {
     let header = conn.menu.header || defaultMenu.header
     let body = conn.menu.body || defaultMenu.body
     let footer = conn.menu.footer || defaultMenu.footer
-    let after = conn.menu.after || defaultMenu.after
+    let after = conn.menu.after || (conn.user.jid == conn.user.jid ? '' : `Powered by https://wa.me/${conn.user.jid.split`@`[0]}`) + defaultMenu.after
     let _text = [
       before,
       ...Object.keys(tags).map(tag => {
-        return header.replace(/%category/g, tags[tag].toUpperCase()) + '\n' + [
+        return header.replace(/%category/g, tags[tag]) + '\n' + [
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%islimit/g, menu.limit ? '(Limit)' : '')
-                .replace(/%isPremium/g, menu.premium ? '(Premium)' : '')
+                .replace(/%isdiamond/g, menu.diamond ? '(Ⓛ)' : '')
+                .replace(/%isPremium/g, menu.premium ? '(Ⓟ)' : '')
                 .trim()
             }).join('\n')
           }),
@@ -116,19 +120,27 @@ const defaultMenu = {
       '%': '%',
       p: _p, uptime, muptime,
       me: conn.getName(conn.user.jid),
-      name, date, time, platform, _p, totalreg,
+      npmname: _package.name,
+      npmdesc: _package.description,
+      version: _package.version,
+      exp: exp - min,
+      maxexp: xp,
+      totalexp: exp,
+      xp4levelup: max - exp,
+      github: _package.homepage ? _package.homepage.url || _package.homepage : '[unknown github url]',
+      level, diamond, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-conn.sendMessage(m.chat, {
+ conn.sendMessage(m.chat, {
 text: text,
 contextInfo: {
 externalAdReply: {
-title: 'JITOSSA 🧚🏼‍♀️',
-body: "سعيد أنك تستعمل جيطوسة بوت",
-thumbnailUrl: 'https://telegra.ph/file/6240a2ed03fe35d028848.jpg',
-sourceUrl: 'https://instagram.com/ovmar_1',
+title: 'BOBIZA BOT ♥',
+body: "أول بوت واتساب في العالم العربي 💖",
+thumbnailUrl: 'https://telegra.ph/file/2829c7653514416d207e2.jpg',
+sourceUrl: 'https://instagram.com/noureddine_ouafy',
 mediaType: 1,
 renderLargerThumbnail: true
 }}}, { quoted: m})
