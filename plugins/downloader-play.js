@@ -28,16 +28,16 @@ let handler = async (m, {
             ago,
             url
         } = vid
-        let dla = "جارى إرسال الأغنية "
-        let dls = "ثم الإرسال بنجاح"
+        let dla = "Downloading audio please wait"
+        let dls = "Downloading audio succes"
 
-        let captvid = `📺 *الوصف:* ${title ? title : 'not know'}
-⌛ *الوقت:* ${timestamp ? timestamp : 'not know'}
-👀 *المشاهدات:* ${formatNumber(views) ? formatNumber(views) : 'not know'}
-📅 *التحميل:* ${ago ? ago : 'not know'}
-🔗 *الرابط:* ${url}
+        let captvid = `📺 *Title:* ${title ? title : 'not know'}
+⌛ *Duration:* ${timestamp ? timestamp : 'not know'}
+👀 *Views:* ${formatNumber(views) ? formatNumber(views) : 'not know'}
+📅 *Upload:* ${ago ? ago : 'not know'}
+🔗 *Link:* ${url}
 
-*تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1
+*_sending audio, wait a moment．．．_*
 `
         let ytthumb = await (await conn.getFile(thumbnail)).data
         let msg = await generateWAMessageFromContent(m.chat, {
@@ -70,7 +70,7 @@ let handler = async (m, {
 
         if (isMP3) {
             let Ytdl = await ytmp3(url)
-            let dls = "ثم الإرسال بنجاح"
+            let dls = "Play audio succes"
             let ytthumb = await (await conn.getFile(Ytdl.meta.image)).data
             let doc = {
                 audio: Ytdl.buffer,
@@ -97,12 +97,12 @@ let handler = async (m, {
             if ((item.contentLength).split("MB")[0] >= limit) return m.reply(` ≡  *YT Downloader*\n\n*⚖️Size* : ${item.contentLength}\n*🎞️Quality* : ${item.quality}\n\n_The file exceeds the download limit_ *+${limit} MB*\n\n*Link:*\n${await shortUrl(item.videoUrl)}`)
             let captvid = `🔍 *[ RESULT ]*
 
-📷 *الصورة URL:* ${item.thumb.url || 'not know'}
-📚 *الوصف:* ${item.title || 'not know'}
-📅 *التاريخ:* ${item.date || 'not know'}
-⏱️ *وقت الفيديو:* ${item.duration || 'not know'}
-📺 *القناة:* ${item.channel || 'not know'}
-🔒 *الجودة:* ${item.quality || 'not know'}
+📷 *Image URL:* ${item.thumb.url || 'not know'}
+📚 *Title:* ${item.title || 'not know'}
+📅 *Date:* ${item.date || 'not know'}
+⏱️ *Duration:* ${item.duration || 'not know'}
+📺 *Channel:* ${item.channel || 'not know'}
+🔒 *Quality:* ${item.quality || 'not know'}
 📦 *Content Length:* ${item.contentLength || 'not know'}
 📝 *Description:* ${item.description || 'not know'}
 `.trim()
