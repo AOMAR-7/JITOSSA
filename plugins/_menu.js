@@ -24,10 +24,10 @@ let tags = {
 const defaultMenu = {
     before: `السلام عليكم 👋. 
 
-┏━━ salam  *%name*
-👥 *Total user:* %totalreg 
-⏰ *Uptime:* %muptime  
-┗━━━━━━━━━━⬣
+❏ HY *%name*
+❏ %dateIslamic*
+❏ *%uptime*
+
 %readmore
   ≡ *B O B I Z A | M E N U*
 `.trimStart(),
