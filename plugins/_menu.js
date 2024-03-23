@@ -38,8 +38,7 @@ const defaultMenu = {
   body: '├ _%cmd_',
   footer: '└────\n',
   after: `*%npmname@^%version*
-${%npmdesc}
-`,
+${%npmdesc}`,
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
   try {
