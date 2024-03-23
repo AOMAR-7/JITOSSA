@@ -26,7 +26,7 @@ const defaultMenu = {
 *JITOSSA MD*
 
 ❏ HY *%name*
-❏ %dateIslamic*
+❏ *%dateIslamic*
 ❏ *%uptime*
 
 %readmore
