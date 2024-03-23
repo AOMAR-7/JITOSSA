@@ -1183,7 +1183,7 @@ const messageText = `
  ❰ ⚠️ ❱ *USER BANNED!* ❰ ⚠️ ❱
 —◉ *Notice ${messageNumber}/3 (Total: 3)*
 —◉ Reason ${user.bannedReason ? `\n*:* ${user.bannedReason}` : '*Reason:* Unspecified'}
-—◉ *إذا كنت تعتقد أن هذا خطأ ولديك دليل، فيمكنك الاتصال بمالك الروبوت لاستئناف التعليق.* —◉ *التواصل مع مالكه:* wa.me/212605784394
+—◉ *إذا كنت تعتقد أن هذا خطأ ولديك دليل، فيمكنك الاتصال بمالك الروبوت لاستئناف التعليق.* —◉ *التواصل مع مالكه:* wa.me/212670941551
 ╚═════════════════════╝
                `.trim();
               m.reply(messageText);
@@ -1539,9 +1539,9 @@ global.dfail = (type, m, conn) => {
     owner: '*[ ℹ️ ] This command can only be used by the bot owner.*',
     mods: '*[ ℹ️ ] This command can only be used by moderators and the bot owner.*',
     premium: '*[ ℹ️ ] This command can only be used by premium users and the bot owner.*',
-    group: '*[ ℹ️ ] This command can only be used in groups.*',
-    private: '*[ ℹ️ ] This command can only be used in the bot s private chat.*',
-    admin: '*[ ℹ️ ] This command can only be used by group administrators.*',
+    group: '*[ ℹ️ ] هاذا الأمر يعمل في المجموعات فقط.*',
+    private: '*[ ℹ️ ] هاذا الأمر خاص بصاحب البوت.*',
+    admin: '*[ ℹ️ ] هاذا الأمر خاص بمشرفين المجمرعة.*',
     botAdmin: '*[ ℹ️ ] To use this command it is necessary that the bot be an administrator of the group.*',
     unreg: '*[ ℹ️ ] To use this command you must be registered.*\n\n*[ 💡 ] Use the command:* _#verify name.age_ *to register.*',
     restrict: '*[ ℹ️ ] This command was disabled by the bot owner.*',
