@@ -4,12 +4,12 @@ import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 //import { plugins } from '../lib/plugins.js'
 let tags = {
-  'morocco':'  ‎قسم للمغاربة',
-  'applications':'‎ قسم التطبيقات‎',
-  'drawing':'‎ توليد الصور‎ قسم' ,
-  'ai':'‎ الذكاء الاصطناعي‎ قسم',
-  'infobot':'‎ معلومات البوت‎',
   'downloader':'‎ قسم التحميلات',
+  'applications':'‎ قسم التطبيقات‎',
+  'ai':'‎ الذكاء الاصطناعي‎ قسم',
+  'morocco':'  ‎قسم للمغاربة',
+  'drawing':'‎ توليد الصور‎ قسم' ,
+  'infobot':'‎ معلومات البوت‎',
   'anime':'‎ قسم عن  الأنيم',
   'islam':'‎ الدين هو الاسلام‎',
   'owner':'‎ قسم مطور البوت',
@@ -27,11 +27,11 @@ const defaultMenu = {
 
 ❏ HY *%name*
 ❏ *%dateIslamic*
-❏ *%uptime*
+❏ *%uptime"*
 
 %readmore
 `.trimStart(),
-  header: '╭┉┉┉≻ *“%category”* ≺┉┉┉',
+  header: '╭┉┉┉≻ *%category* ≺┉┉┉',
   body: `┆ \t ➦ _%cmd`,
   footer: '┆',
   after: `╰┉┉┉≻\t _© ${conn.user.name}_ \t`,
