@@ -26,13 +26,15 @@ const defaultMenu = {
 *JITOSSA MD*
 
 ❏ HY *%name*
+
 ❏ *%dateIslamic*
+
 ❏ *%uptime"*
 
 %readmore
 `.trimStart(),
   header: '╭┉┉┉≻ *%category* ≺┉┉┉',
-  body: `┆ \t ➦ _%cmd`,
+  body: `┆ \t ➦ %cmd`,
   footer: '┆',
   after: `╰┉┉┉≻\t _© ${conn.user.name}_ \t`,
 }
