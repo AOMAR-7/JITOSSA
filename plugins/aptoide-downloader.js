@@ -21,7 +21,7 @@ let handler = async (m, {
             icon,
             dllink
         } = aptodl
-        let cap = "*الإسم:* " + name + "\n" + "*Lastup:* " + lastup + "\n" + "*الحجم:* " + size + "\n\n *تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1"
+        let cap = `*الإسم:* " + name + "\n" + "*Lastup:* " + lastup + "\n" + "*الحجم:* " + size + "\n\n *تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1`
         await conn.sendFile(m.chat, icon, "", cap, m)
         await conn.sendFile(m.chat, dllink, name, null, m, true, {
             quoted: m,
