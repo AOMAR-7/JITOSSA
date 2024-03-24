@@ -11,11 +11,8 @@ let limit2 = 400;
 let limit_a1 = 50;
 let limit_a2 = 400;
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
-  if (!text) throw `⚊⚊⚊⚊⚊⚊✬✥✬⚊⚊⚊⚊⚊⚊
-*⚓⚠️ 𝘕𝘰𝘮𝘣𝘳𝘦 𝘋𝘦 𝘓𝘢 𝘊𝘢𝘯𝘤𝘪𝘰𝘯 𝘍𝘢𝘭𝘵𝘢𝘯𝘵𝘦, 𝘗𝘰𝘳 𝘍𝘢𝘷𝘰𝘳 𝘐𝘯𝘨𝘳𝘦𝘴𝘦 𝘌𝘭 𝘊𝘰𝘮𝘢𝘯𝘥𝘰 𝘔𝘢𝘴 𝘌𝘭 𝘕𝘰𝘮𝘣𝘳𝘦 𝘋𝘦 𝘓𝘢 𝘊𝘢𝘯𝘤𝘪𝘰𝘯*
-⚊⚊⚊⚊⚊⚊✬✥✬⚊⚊⚊⚊⚊⚊
-* » ◇ « ✧ 𝙴𝙹𝙴𝙼𝙿𝙻𝙾 » ◇ « ✧:*
-*${usedPrefix + command} Sombra - Maiye Torrex*`;
+  if (!text) throw `*خاص بتحميل الصوتيات والأغاني والقرءان من يوتوب*
+*${usedPrefix + command} سورو الإخلاص*`;
   try {
     const yt_play = await search(args.join(' '));
     let additionalText = '';
@@ -30,37 +27,17 @@ const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 ╰─━━━━━━⊱✿⊰━━━━━━─
 
 ╭◈ ━━━━━━━ ⸙ ━━━━━━━ ◈
-┋➺ 📌 *Titulo:* 
+┋➺ 📌 *الوصف:* 
 ┋➺ ${yt_play[0].title}
 ┋
-┋➺ 📆 *Publicado:* 
+┋➺ 📆 *الوقت:* 
 ┋➺ ${yt_play[0].ago}
 ┋
-┋➺ ⌚ *Duracion:*
-┋➺ ${secondString(yt_play[0].duration.seconds)}
-┋
-┋➺ 👀 *Vistas:* 
-┋➺ ${`${MilesNumber(yt_play[0].views)}`}
-┋
-┋➺ 🏝 *Autor:* 
-┋➺ ${yt_play[0].author.name}
-┋
-┋➺ 🪁 *Canal:* 
-┋➺ ${yt_play[0].author.url}
-┋
-┋➺ 🏕 *ID:* 
-┋➺ ${yt_play[0].videoId}
-┋
-┋➺ 🌤 *Tipo:*
-┋➺ ${yt_play[0].type}
-┋
-┋➺ 🔗 *Link:* 
+┋➺ 🔗 *الرابط:* 
 ┋➺ ${yt_play[0].url}
 ╰◈ ━━━━━━━ ⸙ ━━━━━━━ ◈
 
-┏─━─━─━∞◆∞━─━─━─┓
-│➻ *_Enviando ${additionalText}, Aguarde Un Momento. . . ．．．_*
-┗─━─━─━∞◆∞━─━─━─┛`.trim();
+_*جاري تلبية طلبك بسرعة...*_`.trim();
         conn.sendMessage(m.chat, {image: {url: yt_play[0].thumbnail}, caption: texto1}, {quoted: m});
     if (command == 'play') {
     try {    
