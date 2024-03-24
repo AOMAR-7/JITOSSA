@@ -4,7 +4,7 @@ const handler = async (m, {conn, usedPrefix: prefix, command, text}) => {
   try {    
     const searchA = await search(text);
     const data5 = await download(searchA[0].id);
-    let response = "*الإسم:* " + name + "\n" + "*Lastup:* " + lastup + "\n" + "*الحجم:* " + size + "\n\n *تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1"
+    let response = `*الإسم:* " + name + "\n" + "*Lastup:* " + lastup + "\n" + "*الحجم:* " + size + "\n\n *تابع صانع البوت فى إنستجرام ❤️* \n https://www.instagram.com/ovmar_1`
     await conn.sendMessage(m.chat, {image: {url: data5.icon}, caption: response}, {quoted: m});
  if (data5.size.includes('GB') || data5.size.replace(' MB', '') > 999) {
       return await conn.sendMessage(m.chat, {text: '*[ 😁 ]الملف كبير جدًا لذا لن يتم إرساله.'}, {quoted: m});
