@@ -12,7 +12,7 @@ let handler = async (m, {
         text = args.slice(0).join(" ")
     } else if (m.quoted && m.quoted.text) {
         text = m.quoted.text
-    } else throw "مثال \n ${usedPrefix}${command} عاصمة المغرب"
+    } else throw "مثال \n.gpt2 عاصمة المغرب"
     await m.reply(wait)
     try {
         let result = await generate(text)
